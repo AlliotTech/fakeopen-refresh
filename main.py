@@ -112,11 +112,28 @@ class TokenManager:
         self.update_pool()
         return self.pool_token
 
+    def run_with_token(self):
+        """
+        fakeopen已经关闭token获取接口，直接通过access_token创建
+
+        Returns:
+            str: 更新后的token池中的token。
+        """
+        for account in self.accounts:
+            username = account['username']
+            access_token = account['token']
+            share_token = self.register_token(username, access_token)
+            self.share_tokens.append(share_token)
+        self.update_pool()
+        return self.pool_token
+
+
 if __name__ == '__main__':
     # 如果不传入pool_token，则为创建新的pool_token，否则为更新现有的pool_token 
     manager = TokenManager('config.yaml')
     # manager = TokenManager('config.yaml', pool_token='pk-xxx')
 
-    pool_token = manager.run()
+    # pool_token = manager.run()
+    pool_token = manager.run_with_token()
     print(pool_token)
 

@@ -1,5 +1,7 @@
 # 帐号列表 
 - username: "xxx@xx.com"
   password: "xxx"
+  token: xxx
 - username: "xxx@xx.cc"
   password: "xxx"
+  token: xxx

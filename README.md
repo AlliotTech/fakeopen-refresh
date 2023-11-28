@@ -7,3 +7,6 @@
 pip install -r requests.txt
 python main.py
 ```
+
+
+~~fakeopen已经关闭token获取接口，目前只能直接通过access_token创建token pool~~  
